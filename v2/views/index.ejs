@@ -52,7 +52,7 @@
             position: absolute;
             top: 70px;
             left: 67px;
-            z-index:2;
+            z-index:3;
         }
         .image4 {
             position: absolute;
@@ -136,8 +136,12 @@
                     <button type = "submit" id = "submit-button" class = "btn">Submit</button>
                     </div>
                     </form>
+                    <span>Click me to make me spin :D</span> <br>
+                    <span>Or replace me by uploading your own image!</span>
                 <br>
-                <img src = "<%= typeof file != 'undefined' ? file : '' %>" id = "user-image">    
+
+                <img src = "<%= typeof file != 'undefined' ? file : '/images/dv.png' %>" id = "user-image">
+
                 <div id="rangeslider"> 
                     <input type="range" min="2000" max="22000" value="10000" class="myslider" id="sliderRange">
                 </div>

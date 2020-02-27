@@ -11,18 +11,18 @@ function rotate1(){
     anime({
         targets: '#ferris',
           rotate: '1turn',
-         loop:true,
+         loop:false,
          easing: 'linear',
         duration: speed,
       });
 }
+//make this more sophisticated - i.e. check when the variable is updated
 window.setInterval(function(){
-    console.log($("#sliderRange")[0]['value'])
     speed = $("#sliderRange")[0]['value']
     $("#current_speed").html("Current speed is " + speed)
-    rotate1()
     /// call your function here
-  }, 500);
+    //rotate1()
+  }, 200);
 
 
 var speed = 21500
@@ -49,6 +49,7 @@ $(document).ready(function(){
     $("#current_speed").html("Current speed is: " + speed)
         
 
+    $(".image3").draggable()
     $("#tire").click(function(){
         console.log("asdfsad")
         var img = document.querySelector("#ferris");
