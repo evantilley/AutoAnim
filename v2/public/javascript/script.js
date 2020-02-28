@@ -11,7 +11,7 @@ function rotate1(){
     anime({
         targets: '#ferris',
           rotate: '1turn',
-         loop:false,
+         loop:true,
          easing: 'linear',
         duration: speed,
       });
