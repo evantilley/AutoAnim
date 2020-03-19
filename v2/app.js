@@ -50,6 +50,8 @@ let port = 3000;
 
 app.get('/', (req, res) => res.render('index'))
 
+app.get('/linear', (req, res) => res.render('linear'))
+
 app.post('/upload', (req, res) => {
     upload(req, res, (err) => {
         if (err){

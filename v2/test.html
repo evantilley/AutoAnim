@@ -1,0 +1,207 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coke Animation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script> 
+  <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+  <link href="./style.css" type="text/css" rel="stylesheet"></style>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  body {
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+  }
+
+  body {
+      background: white;
+  }
+
+  h1 {
+      color: white;
+      margin: 0px;
+  }
+
+  .container {
+      background: white;
+      display: grid;
+      grid-template-columns: 1fr 596px 1fr;
+      grid-template-rows: 1fr 334px 1fr;
+      width: 100%;
+      height: 90vh;
+  }
+
+  .adsImage {
+      background: blue;
+      grid-column: 2/3;
+      grid-row: 2/3;
+      z-index: 10;
+  display:grid;
+  grid-template-columns: 10px 1fr 308px;
+      grid-template-rows: 17px 1fr 48px;
+  }
+
+
+  .wheel{
+      grid-column: 2/3;
+      grid-row: 2/3;
+      z-index: 30;
+      justify-self:center;
+      align-self:center;
+      padding:0;
+      margin:0;
+  }
+
+  .back{
+  grid-column:1/4;
+  grid-row:1/4;
+  }
+
+    .myButton {
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background-color:#f9f9f9;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#666666;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:12px 23px;
+  text-decoration:none;
+}
+.myButton:hover {
+  background-color:#e9e9e9;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+#buttongroup{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+  </style>
+  <script>
+
+  	var dur=21500;
+
+ function runAnimation(){
+   setPosition();
+ }
+ 
+ function setPosition(){
+   anime({
+     targets: '.symbol',
+     duration: 1,
+     complete: rotate
+   });
+ 
+ }
+ 
+ function rotate(){
+   anime({
+     targets: '.symbol',
+       rotate: '1turn',
+      loop:true,
+      easing: 'linear',
+     duration: dur,
+   });
+ }
+
+  function swapsymbol(){
+  let newImageURL= $("#enter_object_url").val();
+  $("#objextDisplay").attr('src', newImageURL );
+  $("#adObject").attr('src', newImageURL );
+ }
+
+  $(document).ready(function(){
+  	runAnimation();
+
+//just 4 lines of code for resizable--it worked!!
+  	$("#resize").click(function(){
+  		$("#symbol2").resizable({
+        aspectRatio: 1/1
+      });
+  	})
+//end
+
+  	$("#drag").click(function(){
+  		$("#symbol2").resizable('disable');
+  		$("#symbol2div").draggable();
+  	})
+
+  	$("#run").click(function(){
+  		$("#symbol2").addClass("symbol");
+  		runAnimation();
+  	})
+
+  	$("#slow").click(function(){
+  		dur=50000;
+  		runAnimation();
+  	})
+
+  	$("#medium").click(function(){
+  		dur=21500;
+  		runAnimation();
+  	})
+
+  	$("#fast").click(function(){
+  		dur=100;
+  		runAnimation();
+  	})
+
+
+  })
+
+
+  </script>
+</head>
+<body>
+    <div id="container" class="container">
+
+        <div class="adsImage">
+            <img class="back"
+                src="https://raw.githubusercontent.com/caramelyc/Animation/master/coke-ferris-wheelbase_v2.jpg">
+
+            <img class="wheel symbol"
+                src="https://raw.githubusercontent.com/caramelyc/Animation/master/coke-caps-v2.png">
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="adsImage">
+            <img class="back"
+                src="https://raw.githubusercontent.com/caramelyc/Animation/master/coke-ferris-wheelbase_v2.jpg">
+		<div id="symbol2div">
+            <img class="wheel" id="symbol2"
+                src="https://raw.githubusercontent.com/caramelyc/Animation/master/coke-caps-v2.png">
+        </div>
+        </div>
+    </div>
+	<div id="buttongroup">
+        	<button class="myButton" id="resize">Resize</button>
+        	<button class="myButton" id="drag">Drag</button>
+        	<button class="myButton" id="run">Run</button>
+        	<button class="myButton" id="slow">Slow</button>
+        	<button class="myButton" id="medium">Medium</button>
+        	<button class="myButton" id="fast">Fast</button>
+    </div>
+
+ 
+ 
+</body>
+</html>
+
+ 
+

@@ -1,0 +1,55 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+    <title>Linear Animation</title>
+    <link rel="stylesheet"
+    href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+
+        .bold{
+            font-weight: bold;
+        }
+        .large{
+            font-size: 4vh;
+        }
+        .blue{
+            background: lightblue
+        }
+        .rectangle{
+            /*width: 800px;
+            height: 500px; */
+            border: 1px solid black;
+            background-color: lightblue;
+        }
+        .test{
+            z-index: 100;
+        }
+    </style>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script src="/javascript/linear.js"></script>
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "blue col-md-12 text-center">
+                    <span class = "bold large">Linear Motion</span>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-12">
+                    <canvas id="canvas" width="800" height="500" class = "rectangle background">
+                    </canvas>
+                </div>
+                <div id = "button" class = "btn" width = "80" height = "80">Play!</div>
+            </div>
+        </div>
+
+    </body>
+</html>

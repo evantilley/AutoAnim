@@ -7,25 +7,13 @@ function rotate(){
         duration: 21500,
       });
 }
-function rotate1(){
-    anime({
-        targets: '#ferris',
-          rotate: '1turn',
-         loop:true,
-         easing: 'linear',
-        duration: speed,
-      });
-}
+
+
 //make this more sophisticated - i.e. check when the variable is updated
-window.setInterval(function(){
-    speed = $("#sliderRange")[0]['value']
-    $("#current_speed").html("Current speed is " + speed)
-    /// call your function here
-    //rotate1()
-  }, 200);
 
 
-var speed = 21500
+
+
 
 function resize(){
     var img = document.querySelector("#ferris");
@@ -41,12 +29,81 @@ function resize(){
 }
 
 
+function restart(){
+    rotate1.restart
+}
+
+function stop(){
+    rotate1.pause
+}
+
+
 $(document).ready(function(){
+    //speed = 4000
+    // setInterval(function() {
+    //     ye(speed).pause
+    //     speed = $("#sliderRange")[0]['value']
+    //     document.querySelector("#rangeslider").onclick = ye(speed).start
+    //   }, 1000);
+    
+    var animation = anime({
+        targets: '#ferris',
+        rotate: '1turn',
+        loop: true,
+        easing: 'linear',
+        duration: function(){
+            return anime.random(100, 10000)
+        },
+        autoplay: false
+      })
+
+
+
+      document.querySelector("#rangeslider").onclick =  anime({
+        targets: '#ferris',
+        rotate: '1turn',
+        loop: true,
+        easing: 'linear',
+        duration: function(){
+            return anime.random(100, 10000)
+        },
+        autoplay: true
+      }).restart
+      //document.querySelector("#rangeslider").onclick = animation.restart
+
+
+      
+      
+      
+
+    // document.querySelector("#rangeslider").onclick = function(){
+    //     speed = $("#sliderRange")[0]['value']
+    //     ye(speed).pause
+    //     ye(speed).restart()
+        
+    // }
+
+
+
+    function ye(speed){
+        console.log("speed is" + speed)
+        return animation = anime({
+            targets: '#ferris',
+            rotate: '1turn',
+            loop: true,
+            easing: 'linear',
+            duration: speed,
+            autoplay: false
+          })
+    }
+
+
+
     rotate()
-    rotate1()
+    //restart()
     resize()
 
-    $("#current_speed").html("Current speed is: " + speed)
+    $("#current_speed").html("Current speed is: " + 10000)
         
 
     $(".image3").draggable()
@@ -124,5 +181,6 @@ $(document).ready(function(){
     })
 
 })   
+
    
    
